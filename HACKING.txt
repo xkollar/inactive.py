@@ -1,0 +1,14 @@
+
+= Dear reader.
+
+So you are inerested in making this little tool better? Perfect!
+
+Nice things to have:
+
+  * Remove dependency on time library.
+  * Some packaging. (egg..., even .deb and .rpm would be nice).
+
+Generally speaking: if you see some smelly code or something
+that you think know better how to do... let me know. I would
+love to know :-).
+

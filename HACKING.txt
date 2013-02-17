@@ -12,3 +12,12 @@ Generally speaking: if you see some smelly code or something
 that you think know better how to do... let me know. I would
 love to know :-).
 
+== Usage
+
+I personally like to use this tool with mplayer playing
+some internet stream, so it stops playing when I leave
+the computer for some time (unnecessary traffic waste).
+
+  $ inactive.py $((60*5)) mplayer -playlist http://jungletrain.net/24kbps.m3u
+
+If you find other use for the tool, please let me know :-).

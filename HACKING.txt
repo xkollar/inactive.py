@@ -1,7 +1,7 @@
 
 = Dear reader.
 
-So you are inerested in making this little tool better? Perfect!
+So you are interested in making this little tool better? Perfect!
 
 Nice things to have:
 
@@ -20,4 +20,12 @@ the computer for some time (unnecessary traffic waste).
 
   $ inactive.py $((60*5)) mplayer -playlist http://jungletrain.net/24kbps.m3u
 
-If you find other use for the tool, please let me know :-).
+If you find other use for the tool, please let me know :-)
+
+== Licencing
+
+Lately many people around successful projects published under
+"permissive more that GPL" licenses started to moan in reaction
+to fact, that some companies started to use their code but never
+contributed anything back. I would like to prevent such situations
+and therefore I have chosen GPLv3.

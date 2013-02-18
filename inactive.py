@@ -151,7 +151,7 @@ def main_run(timeout, sig_num, what):
 
     def on_alrm(_sig, _frame):
         """Handle ALRM signal, schedule new alarm."""
-        d = timeout - xss.idle_()
+        d = timeout - xss.idle_s()
 
         if d > 0:
             signal.alarm(d)

@@ -66,12 +66,12 @@ class Xss:
     class XScreenSaverInfo(ctypes.Structure):
         """ typedef struct { ... } XScreenSaverInfo; """
         _fields_ = \
-            [ ('window',     ctypes.c_ulong) # screen saver window
-            , ('state',      ctypes.c_int)   # off, on, disabled
-            , ('kind',       ctypes.c_int)   # blanked, internal, external
-            , ('since',      ctypes.c_ulong) # milliseconds
-            , ('idle',       ctypes.c_ulong) # milliseconds
-            , ('event_mask', ctypes.c_ulong) # events
+            [ ('window',     ctypes.c_ulong)  # screen saver window
+            , ('state',      ctypes.c_int)    # off, on, disabled
+            , ('kind',       ctypes.c_int)    # blanked, internal, external
+            , ('since',      ctypes.c_ulong)  # milliseconds
+            , ('idle',       ctypes.c_ulong)  # milliseconds
+            , ('event_mask', ctypes.c_ulong)  # events
             ]
 
     def __init__(self):
@@ -111,7 +111,7 @@ def parametrize(function, *args, **kw):
     I'm very proud for this one :-)."""
     def f(*args2, **kw2):
         kw.update(kw2)
-        return function(*(args+args2), **kw)
+        return function(*(args + args2), **kw)
     return f
 
 def show_help(out=sys.stdout, ret=0):

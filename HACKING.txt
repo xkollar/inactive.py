@@ -29,3 +29,10 @@ Lately many people around successful projects published under
 to fact, that some companies started to use their code but never
 contributed anything back. I would like to prevent such situations
 and therefore I have chosen GPLv3.
+
+== Code
+
+Code shall pas pep8, with following possible exceptions
+(more may be added or some may be removed in the future).
+
+  $ pep8.py --ignore=E221,E302,E203,E201,E241,E128,E124,W391 inactive.py

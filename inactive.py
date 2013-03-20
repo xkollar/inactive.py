@@ -58,7 +58,7 @@ import signal
 import sys
 import time
 
-class Xss:
+class Xss(object):
     """X ScreenSaver extension (libxss needed).
     Thanks to http://thp.io/2007/09/x11-idle-time-and-focused-window-in.html
     by Thomas Perl."""

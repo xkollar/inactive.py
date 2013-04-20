@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- utf8
 #   ActiveRun - Simple tool for monitoring user's (in)activity.
 #   Copyright (C) 2013  Matej Kollar
 #

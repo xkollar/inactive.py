@@ -59,6 +59,7 @@ import signal
 import sys
 import time
 
+
 class Xss(object):
     """X ScreenSaver extension (libxss needed).
     Thanks to http://thp.io/2007/09/x11-idle-time-and-focused-window-in.html
@@ -77,9 +78,9 @@ class Xss(object):
 
     def __init__(self):
         self.xlib = ctypes.cdll.LoadLibrary('libX11.so')
-        self.dpy  = self.xlib.XOpenDisplay(os.environ['DISPLAY'])
+        self.dpy = self.xlib.XOpenDisplay(os.environ['DISPLAY'])
         self.root = self.xlib.XDefaultRootWindow(self.dpy)
-        self.xss  = ctypes.cdll.LoadLibrary('libXss.so.1')
+        self.xss = ctypes.cdll.LoadLibrary('libXss.so.1')
         self.xss.XScreenSaverAllocInfo.restype \
             = ctypes.POINTER(Xss.XScreenSaverInfo)
         self.xss_info = self.xss.XScreenSaverAllocInfo()
@@ -93,6 +94,7 @@ class Xss(object):
         """How long is user inactive. Seconds."""
         return self.idle() / 1000
 
+
 def retry_on_eintr(function, *args, **kw):
     """Function by Dan Stromberg to retry interrupted syscall.
     See http://code.activestate.com/lists/python-list/595310/ for details."""
@@ -105,6 +107,7 @@ def retry_on_eintr(function, *args, **kw):
             else:
                 raise
 
+
 def parametrize(function, *args, **kw):
     """Give (some) parameters for function but let it execute later.
     Parameter can be postional as well as named. Positional parameters
@@ -115,24 +118,29 @@ def parametrize(function, *args, **kw):
         return function(*(args + args2), **kw)
     return f
 
+
 def show_help(out=sys.stdout, ret=0):
     print >> out, __doc__.replace('PROG', __file__)
     return ret
 
+
 def show_version(out=sys.stdout):
     print >> out, "%s %s\nby %s" % (__file__, __version__, __author__)
     return 0
+
 
 def show_inactivity():
     xss = Xss()
     print xss.idle_s()
     return 0
 
+
 def main_test(timeout):
     """Functionality for test."""
     xss = Xss()
     # Logic is inverted for shell
     return xss.idle_s() < timeout
+
 
 def main_wait(timeout):
     """Functionality for waiting. Worth rewriting?"""
@@ -143,6 +151,7 @@ def main_wait(timeout):
             return 0
         time.sleep(d)
     return 1
+
 
 def main_run(timeout, sig_num, what):
     """Functionality for runnging command (as subprocess)."""
@@ -168,6 +177,7 @@ def main_run(timeout, sig_num, what):
         (_, ret) = retry_on_eintr(os.waitpid, pid, 0)
         return ret
     return 0
+
 
 def parseargs(argv):
     if argv in (['-h'], ['--help']):
@@ -217,4 +227,3 @@ def parseargs(argv):
 if __name__ == "__main__":
     main = parseargs(sys.argv[1:])
     sys.exit(main())
-
